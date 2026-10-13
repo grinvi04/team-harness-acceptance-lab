@@ -12,3 +12,5 @@ Deployment is a short-lived real HTTP server consuming a built artifact in an is
 It is destroyed in finally; cloud staging/production deployment is outside this test.
 
 Acceptance matrix and handoff instructions are in `docs/acceptance.md`.
+
+Remote policy compatibility is tested using Harness0.93.1 local candidate after actual0.93.0 failures. Normal main/develop require CI only; review-required probes retain one human approval. No human approval success is claimed.
