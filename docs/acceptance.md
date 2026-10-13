@@ -20,3 +20,5 @@ Handoff recipient: read this file, git history and exact PR/CI evidence. Determi
 candidate, failed criterion and next permitted action without author coaching. Run only local
 synthetic tests, diagnose before editing, and preserve tests/policies. Actual human learning
 and productivity remain unmeasured.
+
+Readonly handoff recipient reports next actions; its sandbox limits do not revoke prior user authorization of the parent. Parent executes only the approved new synthetic-lab scope.
