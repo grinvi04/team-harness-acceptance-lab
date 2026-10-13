@@ -14,3 +14,5 @@ It is destroyed in finally; cloud staging/production deployment is outside this 
 Acceptance matrix and handoff instructions are in `docs/acceptance.md`.
 
 Synthetic old-green/new-head rejection probe; never approved for merge.
+
+Synthetic old-green/new-head denial probe; no CI intended on this head.
