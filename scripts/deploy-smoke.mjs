@@ -5,11 +5,14 @@ import {join} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
+import {execFileSync} from 'node:child_process';
 const dir=mkdtempSync(join(tmpdir(),'harness-lab-deploy-'));
 let server;
 try {
   for (const f of ['product.mjs','manifest.json']) copyFileSync('dist/'+f,join(dir,f));
   const manifest=JSON.parse(readFileSync(join(dir,'manifest.json')));
+  const expectedSha=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
+  assert.equal(manifest.sha,expectedSha,'stale artifact: wrong source commit');
   assert.equal(createHash('sha256').update(readFileSync(join(dir,'product.mjs'))).digest('hex'),manifest.artifactSha256);
   const product=await import(pathToFileURL(join(dir,'product.mjs')));
   server=createServer((req,res)=> {res.setHeader('Content-Type','application/json');res.end(JSON.stringify({...product.health(),...manifest}));});

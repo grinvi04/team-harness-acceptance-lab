@@ -7,6 +7,7 @@ Title contract: trim string, require nonempty, maximum80 after trimming, reject 
 Locked tests: test/product.test.mjs. Do not modify them to repair seeded candidates.
 Quality and deploy-smoke must succeed on current PR head, bound to actual GitHub Actions app.
 Failed/missing/pending/old-head CI, stale review snapshot must not merge.
+User-produced same-name success statuses must not replace bound Actions checks.
 Review-required target must reject absent human/CODEOWNER approval; never lower that policy.
 Normal targets have CI-only policy from inception; their success is not approval proof.
 Company solo must refuse without altering any policy.
