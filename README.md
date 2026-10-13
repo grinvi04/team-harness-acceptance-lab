@@ -12,3 +12,5 @@ Deployment is a short-lived real HTTP server consuming a built artifact in an is
 It is destroyed in finally; cloud staging/production deployment is outside this test.
 
 Acceptance matrix and handoff instructions are in `docs/acceptance.md`.
+
+Synthetic required-set absence probe; expected Harness denial.
