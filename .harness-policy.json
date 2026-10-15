@@ -3,5 +3,10 @@
   "mode": "company",
   "autoMergeTargets": [
     "develop"
-  ]
+  ],
+  "branchFlow": "git-flow",
+  "stackedPRs": {
+    "enabled": true,
+    "provider": "github-gh-stack"
+  }
 }
