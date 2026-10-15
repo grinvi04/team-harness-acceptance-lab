@@ -1,0 +1,20 @@
+name: G0 protected stack observation
+on:
+  pull_request:
+    branches: [codex/g0-protected-20261016-conflict1/trunk]
+    types: [opened, synchronize, reopened, edited, stacked]
+permissions:
+  contents: read
+jobs:
+  g0-stack-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - name: Observe allowlisted event fields
+        env:
+          WORKFLOW_SHA: ${{ github.workflow_sha }}
+        run: |
+          node -e 'const fs=require("fs"),e=JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH)),p=e.pull_request; console.log(JSON.stringify({action:e.action,event:process.env.GITHUB_EVENT_NAME,baseRef:process.env.GITHUB_BASE_REF,githubSha:process.env.GITHUB_SHA,githubRef:process.env.GITHUB_REF,workflowSha:process.env.WORKFLOW_SHA,pr:p.number,base:{ref:p.base.ref,sha:p.base.sha},head:p.head.sha,stack:p.stack||null})); if(fs.readFileSync("result.txt","utf8").trim()!=="pass")process.exit(1)'
