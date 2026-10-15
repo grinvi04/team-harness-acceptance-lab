@@ -22,3 +22,8 @@ synthetic tests, diagnose before editing, and preserve tests/policies. Actual hu
 and productivity remain unmeasured.
 
 Readonly handoff recipient reports next actions; its sandbox limits do not revoke prior user authorization of the parent. Parent executes only the approved new synthetic-lab scope.
+
+Stack trial: default-main trusted workflows inspect each direct-parent diff.
+The branch filter follows the stack trunk. Provenance logs identify the workflow,
+trusted checkout and validator hashes; candidate helpers are data only.
+New checks supplement the existing protected checks; protection is unchanged.
